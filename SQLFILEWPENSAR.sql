@@ -1,0 +1,52 @@
+create database db_wpensar;
+
+use db_wpensar;
+
+create table aluno(
+matricula int(200) primary key auto_increment,
+nome varchar(250) not null,
+email varchar(250) not null unique,
+nascimento varchar(10) not null,
+turma varchar(40) not null,
+sexo varchar(10) not null,
+senha varchar(250) not null,
+nota double
+);
+
+create table professor(
+matricula int(200) primary key auto_increment,
+nome varchar(250) not null,
+email varchar(250) not null unique,
+nascimento varchar(10) not null,
+sexo varchar(10) not null,
+disciplina varchar(100) not null,
+senha varchar(250)
+);
+
+select * from aluno;
+
+select * from professor;
+
+create table livro(
+id int(200) primary key auto_increment,
+nome varchar(250) not null,
+nomeAutor varchar (250) not null,
+nmPg int(250) not null,
+dtEmp varchar(10),
+prevDev varchar(10),
+dtDev varchar(10)
+);
+
+select * from livro;
+
+select * from aluno;
+
+select * from professor;
+
+create user 'gabTec'@'localhost' identified by '3009';
+
+grant select, insert, update, delete on db_wpensar.aluno to gabTec;
+
+grant select, insert, update, delete on db_wpensar.professor to gabTec;
+
+grant select, insert, update, delete on db_wpensar.livro to gabTec;
